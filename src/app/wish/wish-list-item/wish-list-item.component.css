@@ -1,0 +1,13 @@
+.strikeout {
+  text-decoration: line-through;
+}
+
+button {
+  border-color: white;
+  border-radius: 15px;
+  background-color: red;
+  color: whitesmoke;
+  font-weight: medium;
+  font-size: small;
+  padding: 5px 15px;
+}

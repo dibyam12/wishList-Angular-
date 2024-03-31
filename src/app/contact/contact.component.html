@@ -1,0 +1,80 @@
+<form
+  class="m-5 p-5 container"
+  [formGroup]="contactForm"
+  (ngSubmit)="$event.preventDefault(); submitForm()">
+  <div class="mb-3">
+    <label class="form-label">Name:</label>
+    <input
+      class="form-control"
+      [(ngModel)]="initials.Name"
+      type="text"
+      formControlName="senderName"
+      [ngClass]="{
+        'is-invalid':
+          (submitted && contactForm.controls.senderName.errors) ||
+          contactForm.controls.senderName.touched
+      }" />
+    <div
+      class="text-danger"
+      *ngIf="
+        (submitted &&
+        contactForm.controls.senderName.errors) ||
+        contactForm.controls.senderName.touched
+      ">
+      Name is required
+    </div>
+
+    <br />
+    <label class="form-label">E-mail Address:</label>
+    <input
+      [(ngModel)]="initials.Email"
+      class="form-control"
+      type="email"
+      formControlName="senderEmail"
+      [ngClass]="{
+        'is-invalid':
+          (submitted && contactForm.controls.senderEmail.errors) ||
+          contactForm.controls.senderEmail.touched
+      }" />
+
+    <div
+      class="text-danger"
+      *ngIf="
+        (submitted && contactForm.controls.senderEmail.errors) ||
+        contactForm.controls.senderEmail.touched
+      ">
+      Email is required
+    </div>
+
+    <br />
+    <label class="form-label">Message:</label>
+    <textarea
+      style="margin-left: 0px !important"
+      class="form-control mx-5"
+      rows="3"
+      [(ngModel)]="initials.Message"
+      formControlName="senderMessage"
+      [ngClass]="{
+        'is-invalid':
+          (submitted && contactForm.controls.senderMessage.errors) ||
+          contactForm.controls.senderMessage.touched
+      }"></textarea>
+    <div
+      class="text-danger"
+      *ngIf="
+        (submitted && contactForm.controls.senderMessage.errors) ||
+        contactForm.controls.senderMessage.touched
+      ">
+      Message is required
+    </div>
+
+    <br />
+    <button
+      type="submit"
+      class="btn form-label btn-primary w-50"
+      (click)="$event.preventDefault(); checkForm()">
+      Submit
+      <!-- [disabled]="contactForm.invalid" -->
+    </button>
+  </div>
+</form>

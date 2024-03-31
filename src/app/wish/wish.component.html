@@ -1,0 +1,18 @@
+<div class="container">
+  <add-wish-form (addWish)="items.push($event)"> </add-wish-form>
+
+  <div class="row mt-3">
+    <wish-filter [(filter)]="filter"> </wish-filter>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-sm-5">
+      <wish-list [wishes]="items.filter(filter)">
+        <!-- visibleItems or items.filter(filter)-->
+      </wish-list>
+    </div>
+  </div>
+</div>
+
+<!-- flow of the data in the app-wish-list is the parent to the child as the data is moving from app to app-wish-list  -->
+<!-- flow of data in wish-form and wish filter is child to parent communication   -->
